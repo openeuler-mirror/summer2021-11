@@ -500,15 +500,34 @@ class issue_label_rule_based():
         return issue_rule_label
 
 
-
 if __name__ == '__main__':
     es = Elasticsearch([{"host": "localhost", "port": 9200}])
 
-    issue_data = pd.read_csv(
-        '/Users/wenzong/PycharmProjects/OpenEuler-用户画像/Data_Crawel/Community_Issue_Data/All_data/Openeuler+Src_all_issue_data.csv')
-    issue_id = issue_data['issue_id']
-    sig_user_name_list = sig_user_list()  # 获取用户名列表
+    ########################################################################################
+    # Way1.从csv中获取issue_id,用户名列表
+    # issue_data = pd.read_csv(
+    #     '/Users/wenzong/PycharmProjects/OpenEuler-用户画像/Data_Crawel/Community_Issue_Data/All_data/Openeuler+Src_all_issue_data.csv')
+    # issue_id = list(issue_data['issue_id'])
+    # sig_user_name_list = sig_user_list()
 
+    # Way2.预设输入参数
+    issue_id = ['I3J0A3', 'I17TPX', 'I189DD', 'I18E7N', 'I1CO4A', 'I1CQ6B', 'I1D5HP', 'I1E4EA', 'I1E68F', 'I1E76D',
+                'I1ECUP',
+                'I1EGJV', 'I1ENJ6', 'I1IN7R', 'I1IWV7', 'I1KR52', 'I1MIT0', 'I1O28D', 'I1O3E5', 'I1O3EV', 'I1O3HA',
+                'I1OQUA',
+                'I1P1WV', 'I1P90B', 'I1PJG0', 'I1PS5J', 'I1QSBJ', 'I1SIPO', 'I1STVI', 'I1TGM6', 'I1TJ8X', 'I1U7L6',
+                'I1UD0E',
+                'I1UU27', 'I1V5F8', 'I1VBGH', 'I1VCQY', 'I1VPHU', 'I1W3BJ', 'I1W8FB', 'I1WHIK', 'I1WMQX', 'I1WXOS',
+                'I1WXQY',
+                'I1WYC0', 'I1X7HG', 'I1Y101', 'I1YKFA']
+    sig_user_name_list = ['AlexZ11', 'Anonymous_Z', 'Au_Aviel', 'BenchMarkFather', 'Charlie_Li', 'Charlie_li',
+                          'Chuan-Zheng',
+                          'Classicriver_jia', 'Clergy97', 'Clerk_duan', 'Gongchen', 'Grooooot', 'HuaxinLuGitee',
+                          'HukunaMatata', 'Jacean',
+                          'Kenneth-Lee-2012', 'KeyboardXia', 'LemmyHuang', 'MrRlu', 'RickyZ5351', 'Ronnie_Jiang',
+                          'RootWB', 'Rudy_Tan',
+                          'Shaojie-Zhang', 'Shinwell_Hu']
+    ########################################################################################
     # tf_idf = TF_IDF(issue_id=issue_id, user_list=sig_user_name_list[0:100])
 
     # 1.1 TF_IDF issue_title 将issue的title进行tf-idf处理后，将关键词赋予给issue
@@ -524,8 +543,6 @@ if __name__ == '__main__':
     # user_tf_idf = tf_idf.tf_idf_user_comment(es_index='all_issue_comment', columns='body')
     # user_tf_idf.to_csv('user_tf_idf.csv', index=None)
     # print(user_tf_idf)
-
-    # 1.3 TF_IDF community关键词提取
 
     ########################################################################################
     # LDA_user_comment = LDA(issue_id_list=issue_id, user_list=sig_user_name_list)
@@ -570,17 +587,16 @@ if __name__ == '__main__':
 
     ########################################################################################
     # 3.1 Rule based label
-    label_rule = {'邮件列表': ['邮件', '邮件列表', '邮箱', '求助', '订阅', 'maillist'],
-                  '多人协作': ['etherpad', '会议记录', 'etherpad', 'openeuler.org'],
-                  '贡献协议签署': ['cla', '签署', '代码提交'],
-                  '门禁': ['jenkins', '构建', '静态检查', '测试用例', '编译', '机器人', '测试环境', '功能测试', '测试'],
-                  '官网': ['下载', '官网', '博客', '镜像', 'iso', 'rpm', '手册'],
-                  '会议系统': ['开会', '周例会', '会议系统']
-                  }
-    community_name_list = ['openeuler/infrastructure']
-    issue_label = issue_label_rule_based(label_rule)
-    issue_rule_label = issue_label.issue_rule_label(es_index='all_issue_data',
-                                                    community_name_list=community_name_list,
-                                                    columns='title')
-    issue_rule_label.to_csv('issue_rule_label.csv', index=None)
-
+    # label_rule = {'邮件列表': ['邮件', '邮件列表', '邮箱', '求助', '订阅', 'maillist'],
+    #               '多人协作': ['etherpad', '会议记录', 'etherpad', 'openeuler.org'],
+    #               '贡献协议签署': ['cla', '签署', '代码提交'],
+    #               '门禁': ['jenkins', '构建', '静态检查', '测试用例', '编译', '机器人', '测试环境', '功能测试', '测试'],
+    #               '官网': ['下载', '官网', '博客', '镜像', 'iso', 'rpm', '手册'],
+    #               '会议系统': ['开会', '周例会', '会议系统']
+    #               }
+    # community_name_list = ['openeuler/infrastructure']
+    # issue_label = issue_label_rule_based(label_rule)
+    # issue_rule_label = issue_label.issue_rule_label(es_index='all_issue_data',
+    #                                                 community_name_list=community_name_list,
+    #                                                 columns='title')
+    # issue_rule_label.to_csv('issue_rule_label.csv', index=None)
