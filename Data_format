@@ -1,0 +1,81 @@
+all_issue_data:
+{
+  "_index": "all_issue_data",
+  "_type": "_doc",
+  "_id": "8gaD7XsBQejGBmwr5Qo3",
+  "_version": 1,
+  "_score": null,
+  "fields": {
+    "issue_url": [
+      "https://gitee.com/src-openeuler/oec-application/issues/I431HQ"
+    ],
+    "creator": [
+      "wangLin0_0"
+    ],
+    "comments": [
+      5
+    ],
+    "@timestamp": [
+      "2021-07-29T13:25:34.000Z"
+    ],
+    "issue_id": [
+      "I431HQ"
+    ],
+    "community_name": [
+      "src-openeuler/oec-application"
+    ],
+    "created_at": [
+      "2021-07-29T21:25:34.000Z"
+    ],
+    "label": [
+      "['hdc-task', 'hdc-task-assign']"
+    ],
+    "assignee": [
+      "wangLin0_0"
+    ],
+    "title": [
+      "软件包rh-java-common-ws-commons-util引入"
+    ],
+    "body": [
+      "<!-- #请根据issue的类型在标题右侧下拉框中选择对应的选项（需求、缺陷或CVE等）-->\n<!-- #请根据issue相关的版本在里程碑中选择对应的节点，若是与版本无关，请选择“不关联里程碑”-->\n\n\n## 软件包rh-java-common-ws-commons-util引入\n\n【任务类型】软件包引入\n\n【任务描述】软件包rh-java-common-ws-commons-util-1.0.1-29.12引入\n\n开发者需要先了解RPM软件包的相关知识，获取上游社区软件包源码，修改软件包的SPEC文件，并完成基于openEuler系统的软件包的编译与功能验证，在码云上创建项目名称为rh-java-common-ws-commons-util的公开仓库，最终将存放有修改过的源码包和spec文件的码云仓库地址，在任务完成时回复给出。\n\n【环境要求】\n\n- CPU架构：x86_64/aarch64\n- OS版本：openEuler20.03-LTS-SP1\n- kernel version：4.19.90\n\n\n【参考资料】\n\n| 序号 | 文档                                                         | 视频讲解                                                     |\n| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |\n| 1    | [RPM软件包简介](https://bbs.huaweicloud.com/forum/forum.php?mod=viewthread&tid=126361) | [SPEC文件介绍 （06:13）](https://www.bilibili.com/video/BV1Q84y1F79M) |\n| 2    | [SPEC文件介绍](https://bbs.huaweicloud.com/forum/forum.php?mod=viewthread&tid=126363) | [手动验证RPM的方法 （02:50）](https://www.bilibili.com/video/BV1A64y117ws) |\n| 3    | [软件包引入的验证步骤](https://bbs.huaweicloud.com/forum/forum.php?mod=viewthread&tid=126372) | [工具验证RPM包的方法 （02:20）](https://www.bilibili.com/video/BV1U84y1F778) |\n| 4    | [OpenEuler社区软件包引入提交流程](https://bbs.huaweicloud.com/forum/forum.php?mod=viewthread&tid=126370) | [软件包的提交流程 （05:35）](https://www.bilibili.com/video/BV1Av411j7tv) |\n| 5    |                                                              | [OBS移仓流程 （06:30）](https://www.bilibili.com/video/BV16y4y1s7LH) |\n\n\n【完成条件】\n\n任务完成后，请在issue中回复你的**码云仓库地址**。如果该软件包编译依赖于其他openEuler-20.03-LTS-SP1仓库中未包含的软件包，**依赖软件包的码云仓库地址**需要同时给出，依赖软件包的码云仓库中同样需要给出源码和spec文件。我们会使使用 [compass-ci](https://gitee.com/openeuler/compass-ci.git) 进行软件包编译构建，基于所有仓库中的源码和spec文件在CPU架构：x86_64/aarch64的openEuler-20.03-LTS-SP1环境上进行编译及功能性验证，验证通过即可获取积分，如果编译验证失败我们将拒绝关闭issue。\n\n【分值】\n紧急程度：中（2分）\n难易程度：简单（1分）\n\n【备注】\n1. 如果参考其他社区的spec文件，请保留changelog，并基于原始的release+1\n2. 如果能从上游获取高于要求版本的源码通过编译测试，也视为任务完成\n\nopenEuler 社区了创建了一个赛事交流的微信群，添加 openEuler 小助手备注“华为开发者大赛”即可入群。\n微信号“openEuler小助手”：SoftCorePro，小助手会为参赛者实时进行答疑解惑的贴心服务，及时为参赛者解决问题。\n小助手在线时间：每天9:00~18:00。"
+    ]
+  },
+  "sort": [
+    1627565134000
+  ]
+}
+
+all_issue_comment:
+{
+  "_index": "all_issue_comment",
+  "_type": "_doc",
+  "_id": "6__ujHsBWVzFjWxu-1eg",
+  "_version": 1,
+  "_score": null,
+  "fields": {
+    "comment_time": [
+      "2021-07-29T01:21:14.000Z"
+    ],
+    "creator": [
+      "friendpalm"
+    ],
+    "@timestamp": [
+      "2021-07-29T01:21:14.000Z"
+    ],
+    "issue_id": [
+      "I4231G"
+    ],
+    "label": [
+      "['sig/Storage']"
+    ],
+    "body": [
+      "@friendpalm  如果要开启enable-lvmlockd-dlm选项，需要依赖dlm-devel包。当前openEuler dlm源码仓只有两个README文件，需要先引入该包后，才能实现该需求。建议等dlm引入后，再重新提需求。"
+    ],
+    "commenter": [
+      "wguanghao"
+    ]
+  },
+  "sort": [
+    1627521674000
+  ]
+}
